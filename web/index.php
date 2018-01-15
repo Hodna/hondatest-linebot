@@ -66,69 +66,40 @@ foreach ($client->parseEvents() as $event) {
 	                    	));
                 			break;
             			case 'button範例':
-            			$client->replyMessage(array(
-                        'replyToken' => $event['replyToken'],
-                        'messages' => array(
-                            array(
-                                'type' => 'template',
-                                'altText' => 'This is a buttons template.',
-                                'template' => array(
-                                	'type' => 'buttons',
-                                	'thumbnailImageUrl' => 'https://example.com/bot/images/image.jpg',
-                                	'imageAspectRatio' => 'rectangle',
-                                	'imageSize' => 'cover',
-                                	'imageBackgroundColor' => '#FFFFFF',
-                                	'title' => 'Menu',
-                                	'text' => '請選擇',
-                                	'actions' => array(
-                                		array(
-                                			'type' => 'message',
-                                			'label' => 'Yes',
-                                			'text' => 'Yes'
-                                		),
-                                		array(
-                                			'type' => 'message',
-                                			'label' => 'No',
-                                			'text' => 'No'
-                                		)
-                                	)
-                                )
+                        makeButtonTemplate();
+            			// $client->replyMessage(array(
+               //          'replyToken' => $event['replyToken'],
+               //          'messages' => array(
+               //              array(
+               //                  'type' => 'template',
+               //                  'altText' => 'This is a buttons template.',
+               //                  'template' => array(
+               //                  	'type' => 'buttons',
+               //                  	'thumbnailImageUrl' => 'https://example.com/bot/images/image.jpg',
+               //                  	'imageAspectRatio' => 'rectangle',
+               //                  	'imageSize' => 'cover',
+               //                  	'imageBackgroundColor' => '#FFFFFF',
+               //                  	'title' => 'Menu',
+               //                  	'text' => '請選擇',
+               //                  	'actions' => array(
+               //                  		array(
+               //                  			'type' => 'message',
+               //                  			'label' => 'Yes',
+               //                  			'text' => 'Yes'
+               //                  		),
+               //                  		array(
+               //                  			'type' => 'message',
+               //                  			'label' => 'No',
+               //                  			'text' => 'No'
+               //                  		)
+               //                  	)
+               //                  )
 
-                            )
-                        )
-                    	));
+               //              )
+               //          )
+               //      	));
             			break;
                 	}
-                	//傳送template測試(tamplate button)
-                	// if($template_val != 0){
-                	// 	$client->replyMessage(array(
-                 //        'replyToken' => $event['replyToken'],
-                 //        'messages' => array(
-                 //            array(
-                 //                'type' => 'template',
-                 //                'alttext' => 'Yes or No.',
-                 //                'template' => array(
-                 //                	'type' => 'confirm',
-                 //                	'text' => '確定嗎？',
-                 //                	'action' =>array(
-                 //                		array(
-                 //                			'type' => 'message',
-                 //                			'label' => 'Yes',
-                 //                			'text' => 'No'
-                 //                		),
-                 //                		array(
-                 //                			'type' => 'message',
-                 //                			'label' => 'Yes',
-                 //                			'text' => 'No'
-                 //                		)
-                 //                	)
-                 //                )
-
-                 //            )
-                 //        )
-                 //    	));
-                 //    	$template_val = 0;
-                	// }
                 	if($botReply != ""){
                 		$m_message = $botReply;
                 	}else{
@@ -162,5 +133,39 @@ foreach ($client->parseEvents() as $event) {
             break;
     }
 };
+
+function makeButtonTemplate($text){
+    $client->replyMessage(array(
+                        'replyToken' => $event['replyToken'],
+                        'messages' => array(
+                            array(
+                                'type' => 'template',
+                                'altText' => 'This is a buttons template.',
+                                'template' => array(
+                                    'type' => 'buttons',
+                                    'thumbnailImageUrl' => 'https://example.com/bot/images/image.jpg',
+                                    'imageAspectRatio' => 'rectangle',
+                                    'imageSize' => 'cover',
+                                    'imageBackgroundColor' => '#FFFFFF',
+                                    'title' => 'Menu',
+                                    'text' => $text,
+                                    'actions' => array(
+                                        array(
+                                            'type' => 'message',
+                                            'label' => 'Yes',
+                                            'text' => 'Yes'
+                                        ),
+                                        array(
+                                            'type' => 'message',
+                                            'label' => 'No',
+                                            'text' => 'No'
+                                        )
+                                    )
+                                )
+
+                            )
+                        )
+                        ));
+}
 
 
