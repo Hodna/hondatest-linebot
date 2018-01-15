@@ -66,38 +66,37 @@ foreach ($client->parseEvents() as $event) {
 	                    	));
                 			break;
             			case 'button範例':
-                        makeButtonTemplate();
-            			// $client->replyMessage(array(
-               //          'replyToken' => $event['replyToken'],
-               //          'messages' => array(
-               //              array(
-               //                  'type' => 'template',
-               //                  'altText' => 'This is a buttons template.',
-               //                  'template' => array(
-               //                  	'type' => 'buttons',
-               //                  	'thumbnailImageUrl' => 'https://example.com/bot/images/image.jpg',
-               //                  	'imageAspectRatio' => 'rectangle',
-               //                  	'imageSize' => 'cover',
-               //                  	'imageBackgroundColor' => '#FFFFFF',
-               //                  	'title' => 'Menu',
-               //                  	'text' => '請選擇',
-               //                  	'actions' => array(
-               //                  		array(
-               //                  			'type' => 'message',
-               //                  			'label' => 'Yes',
-               //                  			'text' => 'Yes'
-               //                  		),
-               //                  		array(
-               //                  			'type' => 'message',
-               //                  			'label' => 'No',
-               //                  			'text' => 'No'
-               //                  		)
-               //                  	)
-               //                  )
+            			$client->replyMessage(array(
+                        'replyToken' => $event['replyToken'],
+                        'messages' => array(
+                            array(
+                                'type' => 'template',
+                                'altText' => 'This is a buttons template.',
+                                'template' => array(
+                                	'type' => 'buttons',
+                                	'thumbnailImageUrl' => 'https://example.com/bot/images/image.jpg',
+                                	'imageAspectRatio' => 'rectangle',
+                                	'imageSize' => 'cover',
+                                	'imageBackgroundColor' => '#FFFFFF',
+                                	'title' => 'Menu',
+                                	'text' => '請選擇',
+                                	'actions' => array(
+                                		array(
+                                			'type' => 'message',
+                                			'label' => 'Yes',
+                                			'text' => 'Yes'
+                                		),
+                                		array(
+                                			'type' => 'message',
+                                			'label' => 'No',
+                                			'text' => 'No'
+                                		)
+                                	)
+                                )
 
-               //              )
-               //          )
-               //      	));
+                            )
+                        )
+                    	));
             			break;
                 	}
                 	if($botReply != ""){
@@ -134,38 +133,6 @@ foreach ($client->parseEvents() as $event) {
     }
 };
 
-function makeButtonTemplate(){
-    $client->replyMessage(array(
-                        'replyToken' => $event['replyToken'],
-                        'messages' => array(
-                            array(
-                                'type' => 'template',
-                                'altText' => 'This is a buttons template.',
-                                'template' => array(
-                                    'type' => 'buttons',
-                                    'thumbnailImageUrl' => 'https://example.com/bot/images/image.jpg',
-                                    'imageAspectRatio' => 'rectangle',
-                                    'imageSize' => 'cover',
-                                    'imageBackgroundColor' => '#FFFFFF',
-                                    'title' => 'Menu',
-                                    'text' => "help",
-                                    'actions' => array(
-                                        array(
-                                            'type' => 'message',
-                                            'label' => 'Yes',
-                                            'text' => 'Yes'
-                                        ),
-                                        array(
-                                            'type' => 'message',
-                                            'label' => 'No',
-                                            'text' => 'No'
-                                        )
-                                    )
-                                )
-
-                            )
-                        )
-                        ));
 }
 
 
