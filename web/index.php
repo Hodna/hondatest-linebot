@@ -66,7 +66,7 @@ foreach ($client->parseEvents() as $event) {
 	                    	));
                 			break;
             			case 'button範例':
-                        makeButtonTemplate("Help");
+                        makeButtonTemplate();
             			// $client->replyMessage(array(
                //          'replyToken' => $event['replyToken'],
                //          'messages' => array(
@@ -134,7 +134,7 @@ foreach ($client->parseEvents() as $event) {
     }
 };
 
-function makeButtonTemplate($text){
+function makeButtonTemplate(){
     $client->replyMessage(array(
                         'replyToken' => $event['replyToken'],
                         'messages' => array(
@@ -148,7 +148,7 @@ function makeButtonTemplate($text){
                                     'imageSize' => 'cover',
                                     'imageBackgroundColor' => '#FFFFFF',
                                     'title' => 'Menu',
-                                    'text' => $text,
+                                    'text' => "help",
                                     'actions' => array(
                                         array(
                                             'type' => 'message',
