@@ -66,7 +66,7 @@ foreach ($client->parseEvents() as $event) {
 	                    	));
                 			break;
             			case 'button範例':
-                        makeButtonTemplate();
+                        makeButtonTemplate("Help");
             			// $client->replyMessage(array(
                //          'replyToken' => $event['replyToken'],
                //          'messages' => array(
